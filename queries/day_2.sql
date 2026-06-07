@@ -19,7 +19,9 @@ OR salary_date is null;
 -- PERFORMANCE TABLE --
 select * 
 from performance
-where rating_2022 is null
+where rating_2023 IS NOT NULL;
+
+DESC PERFORMANCE
 
 -- ATTENDANCE TABLE --
 SELECT *
@@ -28,3 +30,11 @@ WHERE status = ''
 OR attendance_date is null
 ;
 
+
+SELECT COUNT(*)
+FROM performance
+WHERE rating_2023 IS NULL;
+
+
+SELECT COUNT(*) AS total_rows
+FROM performance;
