@@ -55,3 +55,23 @@ create table performance(
     rating_2022 int not null,
     rating_2023 int not null,
     rating_2024 int not null)
+
+create table clean_EMPLOYEES
+as select * from employees;
+
+create table clean_DEPARTMENTS
+as select * from departments;
+
+create table clean_SALARIES
+as select * from salaries;
+
+create table clean_attendance
+as select * from attendance;
+
+create table clean_performance
+as select * from performance;
+
+select emp_name, age, city, dept_id, hire_date 
+from clean_employees
+where emp_name is NULL or age is NULL
+or city is NULL or dept_id is NULL or hire_date is NULL;
