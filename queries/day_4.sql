@@ -25,4 +25,24 @@ delete from clean_performance
 where emp_id in (select emp_id from cte where rn>1);
 
 
-select DISTINCT
+select DISTINCT(city)
+from clean_employees;
+
+UPDATE clean_employees
+SET city = CONCAT(LEFT(TRIM(city), 1), LOWER(SUBSTRING(TRIM(city), 2)))
+WHERE city IS NOT NULL;
+
+SELECT * FROM clean_employees
+WHERE city IS NOT NULL;
+UPDAT
+
+--cleaning city names--
+
+UPDATE clean_employees
+SET city= case
+when city in('Dlhi','Delhi ncr','New delhi')
+then 'Delhi'
+when city in('hydbd') then 'Hyderabad'
+when city in('Bangalore') then 'Bengalore'
+else city
+end
