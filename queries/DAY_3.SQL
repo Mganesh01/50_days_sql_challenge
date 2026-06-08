@@ -16,7 +16,7 @@ select emp_id,emp_name,city,count(*) cnt
 from clean_employees
 group by
 emp_id,emp_name,city
-having count(*)>=1;
+having count(*)>1;
 
 -- deptments --
 select dept_id,dept_name
@@ -33,11 +33,11 @@ emp_id,rating_2022,rating_2023,rating_2024
 having count(*)>=1;
 
 -- salaries --
-select emp_id,salary,salary_date    
+select emp_id,salary_id,salary ,count(*)   
 from clean_salaries
 group by
-emp_id,salary,salary_date
-having count(*)>=1;
+emp_id,salary_id,salary
+having count(*)>1;
 
 -- attendance --
 select emp_id,attendance_date,status
